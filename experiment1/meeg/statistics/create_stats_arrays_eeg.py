@@ -18,11 +18,6 @@ with open(eegNames, 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     EEGchans = list(chain.from_iterable((list(reader))))
 
-chanNo = len(EEGchans)
-subNo = len(subs)
-condNo = 2
-freqs = 50
-
 bandDict = {"delta": [0, 2], "theta1": [4, 5], "theta2": [6, 7], "theta3": [8, 9], 'theta': [3, 7], 'alpha': [10, 11],
            'beta': [12, 19], "gamma": [20, 50], "animalTheta": [3, 11]}
 bands = ["delta", "theta1", "theta2", "theta3", "theta", "alpha", "beta", "gamma", "animalTheta"]
@@ -46,11 +41,11 @@ for cond in conditions1:
 
                     data = tfr_file.copy().pick_channels([chan]).data.squeeze()
 
-                    data = data[lim[0]:lim[1], :].mean(axis=0) # 100 ms to 250 ms
+                    data = data[lim[0]:lim[1], :].mean(axis=0)
 
-                    data = np.concatenate((data, np.array([data[637:687].mean()]).T)) # 50 ms to 250 ms
+                    data = np.concatenate((data, np.array([data[637:687].mean()]).T)) 
 
-                    roundedData = np.round(np.array(data[624:774]),3) # 0 to 600 ms
+                    roundedData = np.round(np.array(data[624:774]),3) 
                     peakSample = np.array([roundedData.argmax()]).T
 
                     if len(peakSample) > 1:
@@ -101,8 +96,6 @@ conditions2 = ['reward_tmaze_eeg64', 'noreward_tmaze_eeg64']
 
 pType = ['evoked', 'total']
 
-subNo = 11
-
 megNames = path + 'channel_names_meg.txt'
 eegNames = path + 'channel_names_eeg64.txt'
 
@@ -110,8 +103,6 @@ with open(eegNames, 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     chans = list(chain.from_iterable((list(reader))))
 
-chanNo = len(chans)
-#samples = 661
 samples=275
 
 all_data = np.zeros(shape=(0, 14))
