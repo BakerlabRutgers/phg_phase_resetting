@@ -1,16 +1,9 @@
 import os
-import numpy as np
-import pandas as pd
-import mne
-from mne.preprocessing import ICA
-from itertools import chain
-import csv
+from scipy.io import loadmat
 import numpy as np
 
 import mne
 from mne.time_frequency import tfr_morlet
-
-from scipy.io import loadmat
 
 # Import the mat files from time-frequency analysis to Python
 # And convert into MNE-python tfr object
