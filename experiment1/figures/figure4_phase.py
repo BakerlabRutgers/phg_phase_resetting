@@ -84,7 +84,7 @@ ax.spines['bottom'].set_linewidth(2)
 ax.yaxis.set_tick_params(width=2, length=6)
 ax.xaxis.set_tick_params(width=2, length=6)
 
-fig.savefig(path + '/plots/figure3/RVL_pre_eeg.pdf', bbox_inches='tight')
+fig.savefig(path + '/plots/figure4/RVL_pre_eeg.pdf', bbox_inches='tight')
 
 #####
 
@@ -134,7 +134,7 @@ ax.spines['bottom'].set_linewidth(2)
 ax.yaxis.set_tick_params(width=2, length=6)
 ax.xaxis.set_tick_params(width=2, length=6)
 
-fig.savefig(path + '/plots/figure3/RVL_post_eeg.pdf', bbox_inches='tight')
+fig.savefig(path + '/plots/figure4/RVL_post_eeg.pdf', bbox_inches='tight')
 
 #####
 
@@ -199,7 +199,7 @@ ax.spines['bottom'].set_linewidth(2)
 ax.yaxis.set_tick_params(width=2, length=6)
 ax.xaxis.set_tick_params(width=2, length=6)
 
-fig.savefig(path + '/plots/figure3/RVL_pre_meg.pdf', bbox_inches='tight')
+fig.savefig(path + '/plots/figure4/RVL_pre_meg.pdf', bbox_inches='tight')
 
 #####
 
@@ -249,4 +249,4 @@ ax.spines['bottom'].set_linewidth(2)
 ax.yaxis.set_tick_params(width=2, length=6)
 ax.xaxis.set_tick_params(width=2, length=6)
 
-fig.savefig(path + '/plots/figure3/RVL_post_meg.pdf', bbox_inches='tight')
+fig.savefig(path + '/plots/figure4/RVL_post_meg.pdf', bbox_inches='tight')
