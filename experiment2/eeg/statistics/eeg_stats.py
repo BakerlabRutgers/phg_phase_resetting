@@ -10,8 +10,8 @@ import pingouin as pg
 
 path = 'file_directory'
 
-pdDat = pd.read_csv(path + 'tf/dataAlleysEvoked_long_peakTheta_50350_max.csv')
-pdDat['peakLatency'] = pdDat['peakLatency'] + 50
+pdDat = pd.read_csv(path + 'tf/tfr_stats_alleys_evoked.csv')
+pdDat['peakLatency'] = pdDat['peakLatency']
 pdDat['condition'] = pdDat['alley'] + '_' + pdDat['block']
 subs = [3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30]
 
