@@ -83,7 +83,7 @@ for condName in conditions:
                     peakSample = np.hstack([peakSample, peakSample1])
 
                 data = np.hstack((data, np.array([peakVal]).T))
-                data = np.hstack((data, np.array([peakSample + 1]).T))
+                data = np.hstack((data, np.array([peakSample + 51]).T)) # account for 50 ms start of the search window
 
                 data = np.delete(data, range(0, samples), axis=1)
 
