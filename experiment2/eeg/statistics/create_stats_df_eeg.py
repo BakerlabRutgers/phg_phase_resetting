@@ -30,9 +30,7 @@ subNo = len(subs)
 condNo = len(conditions)
 freqs = 50
 samples = 5001
-
 all_data = np.zeros(shape=(0, 10))
-peakRange = rangeDict[time_range]
 
 for condName in conditions:
 
@@ -70,7 +68,7 @@ for condName in conditions:
                                            TFdata[freqRange[0]:freqRange[1], time_range[0]:time_range[1]].shape)[0] + lim[0]
 
                 data = TFdata[freqRange[0]:freqRange[1], :]
-                data = np.hstack((data, np.array([data[:, meanRange[0]:meanRange[1]].mean(axis=1)]).T))
+                data = np.hstack((data, np.array([data[:, time_range[0]:time_range[1]].mean(axis=1)]).T))
 
                 peakData = data[:, time_range[0]:time_range[1]]
                 peakVal = np.zeros(shape=(0))
