@@ -62,8 +62,8 @@ for subj = 1:size(subjs,2)
     durations{7} =2;
     durations{8} =2;
 
-    % Save the event file in SPM8 format
-    save([eventDir 'events_MazeRun_completeSample.mat'], 'names', 'onsets', 'durations');
+    % Save the event file in SPM format
+    save([eventDir 'events.mat'], 'names', 'onsets', 'durations');
 end
 
 %% Same for single trial BIDS format without artifact trials excluded from EEG
@@ -128,7 +128,7 @@ for subj = 1:size(subjs,2)
     writetable(T, ['/sub-0' subST(2:end) '_task-tmaze_events.tsv'],'FileType', 'text', 'Delimiter', '\t')
 end
 
-%%
+%% Also format confound regressors for single trial analysis
 
 cd(rootDir)
 
