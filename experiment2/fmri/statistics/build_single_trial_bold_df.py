@@ -22,7 +22,10 @@ GlasserMasker = NiftiLabelsMasker(labels_img=glasser, standardize=False,
                                     memory='nilearn_cache', verbose=0)
 
 path = 'file_directory'
-subs = ['3', '5', '6', '7', '8', '9', '10', '11', '12', '13', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '26', '27', '28', '29', '30']
+subs = [str(x) for x in np.arange(3,31)]
+subs.remove('4')
+subs.remove('14')
+subs.remove('25')
 conditions = ['mazeleft', 'mazeright', 'nomazeleft', 'nomazeright']
 
 for cond in conditions:
