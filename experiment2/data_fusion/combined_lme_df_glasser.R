@@ -1,5 +1,3 @@
-#################### T-maze EEG-fMRI ROI analysis stats  ########################
-
 ### Set working directory and load all the necessary libraries
 
 # Data management
@@ -19,9 +17,9 @@ setwd("file_directory")
 # Single rois for cingulate and PHC
 df1 <- ldply('/mri/beta_glasser_mazeleft.csv', read.table, header = T, sep =',')
 df2 <- ldply('/mri/beta_glasser_mazeright.csv', read.table, header = T, sep =',')
-#df3 <- ldply('/mri/beta_glasser_nomazeleft.csv', read.table, header = T, sep =',')
-#df4 <- ldply('/mri/beta_glasser_nomazeright.csv', read.table, header = T, sep =',')
-beta_glasser_st <- rbind(df1, df2)
+df3 <- ldply('/mri/beta_glasser_nomazeleft.csv', read.table, header = T, sep =',')
+df4 <- ldply('/mri/beta_glasser_nomazeright.csv', read.table, header = T, sep =',')
+beta_glasser_st <- rbind(df1, df2, df3, df4)
 
 ## EEG time frequency measures, single trial and average values
 ############################################################################################
@@ -37,7 +35,7 @@ channels <- c(160)
 frequs <- c(unique(evoked_st$frequency), c('peakTheta', 'peakThetaFrequ'))
 bands <- levels(unique(evoked_st$band))
 conditions <- c('left', 'right')
-blocks <- c('nomaze')
+blocks <- c('maze', 'nomaze')
 subs <- unique(evoked_st$subject)
 
 eegcols <- c(paste(numbers_to_words(c(1:50)), '50250', sep="_"), 'peakTheta_50250', 'peakThetaFrequ_50250')
