@@ -1,7 +1,4 @@
-%% Script for replicating phase analysis from Baker et al. (2013)
-clear all
-clc
-close all
+%% Scripts from Baker et al. (2013) modified for replication in Güth et al. (2024)
 
 nb_subjects = 11;
 nb_conditions = 2; % left is 1, right is 2
