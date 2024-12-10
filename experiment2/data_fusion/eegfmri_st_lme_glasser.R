@@ -1,3 +1,20 @@
+# Data management
+library(plyr)
+library(gdata)
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(xfun)
+library(hash)
+
+# Stats
+library(car)
+library(lme4)
+library(effects)
+library(psych)
+library(GPArotation)
+library(modelsummary)
+
 eegfmri <- ldply("lme_df_glasser_evoked.txt", read.table, header = T, sep ='\t')
 
 glasser_results <- data.frame(matrix(ncol = 15, nrow = 0))
@@ -7,6 +24,7 @@ colnames(glasser_results) <- c('roi', 'delta', 'theta1', 'theta2', 'theta3',
 
 rois <- c(5:364)
 chans <- c(160)
+blocks <- c('maze')
 
 eegcols <- c(paste(numbers_to_words(c(1:50)), '50250', sep="_"), 'peakTheta_50250', 'peakThetaFrequ_50250')
 
@@ -16,7 +34,7 @@ for (roi in rois) {
   eegfmri_roi <- eegfmri[,c(1:4, roi, 365:417)]
   colnames(eegfmri_roi) <- c(c('trials', 'trial_type', 'block', 'subject', 'target_roi'), 'channel', eegcols)
   
-  model_df <- ddply(eegfmri_roi[(eegfmri_roi$block %in% c('nomaze')) 
+  model_df <- ddply(eegfmri_roi[(eegfmri_roi$block %in% blocks)) 
                                 & (eegfmri_roi$channel %in% chans) 
                                 & (eegfmri_roi$trial_type %in% c('right','left')) ,], 
                     c('subject', 'trials'), summarise,
@@ -45,4 +63,4 @@ for (roi in rois) {
   
 }
 
-write.table(glasser_results, file = "final_glasser_results_nomaze.txt", sep = "\t", dec = ".", row.names = FALSE)
+write.table(glasser_results, file = "glasser_results_maze.txt", sep = "\t", dec = ".", row.names = FALSE)
