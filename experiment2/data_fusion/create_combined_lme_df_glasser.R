@@ -11,24 +11,6 @@ library(reshape2)
 library(xfun)
 library(hash)
 
-# Stats
-library(car)
-library(lme4)
-library(effects)
-library(psych)
-library(GPArotation)
-library(modelsummary)
-
-# Plotting and summary tables
-library(ggplot2)
-library(viridis)
-library(corrplot)
-library(sjmisc)
-library(sjPlot)
-library(lavaan)
-library(semPlot)
-library(kableExtra)
-
 setwd("file_directory")
 
 #### Collect all the data arrays
