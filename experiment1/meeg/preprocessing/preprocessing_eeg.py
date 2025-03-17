@@ -78,8 +78,8 @@ ica.exclude = eog_indices
 
 # Plot the component artifact scores along with component properties and averaged raw data around EOG events with the best matching component excluded
 ica.plot_scores(eog_scores);
-ica.plot_properties(raw, picks=eog_indices);
-ica.plot_sources(raw, start=100);
+ica.plot_properties(filter_raw, picks=eog_indices);
+ica.plot_sources(filter_raw, start=100);
 ica.plot_sources(eog_epochs.average());
 
 # Back-project to continous data without artifact components
