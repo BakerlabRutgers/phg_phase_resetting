@@ -10,7 +10,7 @@ data_folder = 'file_directory/raw/'
 raw_file = os.path.join(data_folder, 'filename.vhdr')
 
 # Read the first file and create a montage with EOG channels as before
-raw = mne.io.read_raw_brainvision(sample_data_eeg, preload=True)
+raw = mne.io.read_raw_brainvision(raw_file, preload=True)
 
 # Load the digital montage file used for the EEG montage
 montage = mne.channels.make_standard_montage(kind='standard_1005')
