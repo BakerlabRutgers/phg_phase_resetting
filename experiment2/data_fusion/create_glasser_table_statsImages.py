@@ -139,7 +139,7 @@ for statistic in ['theta1', 'theta2']:
     for condition in ['maze']:
 
         # Load a stats image you want to check
-        stats_image = nib.load('D:\\EEG_fMRI_tmaze\\mri\\atlas\\glasser_asym_rois\\stats_images\\' + statistic + '_' + condition + '_sig_mc.nii')
+        stats_image = nib.load(output_dir + statistic + '_' + condition + '_sig_mc.nii')
 
         # Plot the image on a glass brain
         fig = plotting.plot_glass_brain(stats_image, cmap='RdBu_r', colorbar=False, title=None,
